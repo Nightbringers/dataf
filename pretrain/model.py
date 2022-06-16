@@ -29,7 +29,7 @@ class search(Model):
 
         emb = emb*att
         final = tf.reduce_sum(emb,axis=1)/txt_len
-        return  final
+        return  final,emb,mask
 
     def create_padding_mask(seq):
         seq = tf.cast(tf.math.not_equal(seq, 0), tf.float32)
